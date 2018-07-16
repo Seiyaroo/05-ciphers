@@ -30,16 +30,20 @@ public class Cipher {
             encodedString = ROT13Cipher.encodeRot(payload);
 
         } else if (type == 3) {
-            System.out.println("You chose Keyword - Type your message below");
+            System.out.println("You chose Keyword - Type your keyword below");
+            String key = input.nextLine();
+            System.out.println("You set your keyword to: " + key);
+            System.out.println("Input your message below");
             payload = input.nextLine();
 
-
+            encodedString = KeywordCipher.encrypt(payload, key);
         } else if (type == 4) {
             System.out.println("You chose Caesar-Shift - How much would you like to shift?");
             int shiftyBoi = input.nextInt();
             System.out.println("You set the shift amount to: " + shiftyBoi);
+            input.nextLine();
             System.out.println("Input your message below");
-            payload = input.next();
+            payload = input.nextLine();
 
             encodedString = CaesarShiftCipher.encrypt(payload, shiftyBoi);
         }
@@ -62,8 +66,13 @@ public class Cipher {
             decodedString = ROT13Cipher.encodeRot(payload);
 
         } else if (type == 3) {
-            System.out.println("You chose Keyword - Type your message below");
+            System.out.println("You chose Keyword - Type your keyword below");
+            String key = input.nextLine();
+            System.out.println("You set your keyword to: " + key);
+            System.out.println("Input your message below");
             payload = input.nextLine();
+
+            decodedString = KeywordCipher.decrypt(payload, key);
         } else if (type == 4) {
             System.out.println("You chose Caesar-Shift - How far is your cipher shifted?");
             int shiftyBoi = input.nextInt();
@@ -75,24 +84,6 @@ public class Cipher {
         }
         System.out.println("Your message: " + decodedString);
         return decodedString;
-    }
-
-    protected static String replaceCharacters(String payload, String source, String target) {
-
-        String thingy = " ";
-
-        // Build the for loop here to compare the input message to the different alphabets based on chosen cipher
-        // If a => n etc...
-
-        for (int i = 0; i < payload.length(); i++) {
-            System.out.println("In the for loop");
-            System.out.println(payload.charAt(i));
-            System.out.println(target.charAt(i));
-            thingy += target.charAt(i);
-
-        }
-
-        return thingy;
     }
 
 }
