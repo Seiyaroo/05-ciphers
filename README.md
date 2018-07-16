@@ -1,11 +1,11 @@
 # ![CF](http://i.imgur.com/7v5ASc8.png) Ciphers
 
-**Cipher:** a secret or disguised way of writing; a code.
+**ciphers.Cipher:** a secret or disguised way of writing; a code.
 
 ## Resources  
 * [Wikipedia: ROT13](https://en.wikipedia.org/wiki/ROT13)
 * [Caeser ShiftCipher](http://practicalcryptography.com/ciphers/caesar-cipher/)
-* [Wikipedia: Keyword Cipher](https://en.wikipedia.org/wiki/Keyword_cipher)
+* [Wikipedia: Keyword ciphers.Cipher](https://en.wikipedia.org/wiki/Keyword_cipher)
 
 ## Feature Tasks
 For this assignment you will be implementing various ciphers to encode and
@@ -19,7 +19,7 @@ Your program should handle input gracefully. Use `try-catch` statements to
 prevent the program from crashing when users enter bad input and print out
 helpful error messages instead.
 
-Use inheritance to implement a base `Cipher` class then have other
+Use inheritance to implement a base `ciphers.Cipher` class then have other
 cipher classes extend from there.
 
 ## Requirements
@@ -27,10 +27,10 @@ Your project structure should contain the following classes and package:
 
 * `Main.java` as the main file that handles command line input.
 * `ciphers` package
-  * `Cipher.java`
-  * `ROT13Cipher.java`
-  * `CaesarShiftCipher.java`
-  * `KeywordCipher.java`
+  * `ciphers.Cipher.java`
+  * `ciphers.ROT13Cipher.java`
+  * `ciphers.CaesarShiftCipher.java`
+  * `ciphers.KeywordCipher.java`
 
 
 Refer to the resource links above to see the exact details of each cipher.
@@ -38,12 +38,12 @@ Refer to the resource links above to see the exact details of each cipher.
 * You may assume all text in the ciphers is always lowercase.
 * You may not assume text does not contain spaces or punctuation.
 
-#### The Plain Text Cipher Base Class
-The `Cipher` base class listed here just encodes and decodes alphabetic
+#### The Plain Text ciphers.Cipher Base Class
+The `ciphers.Cipher` base class listed here just encodes and decodes alphabetic
 characters to themselves. It maps "a" to "a" in encoding and maps "a"
 back to "a" when decoding, for all letters.
 
-The `Cipher` class should have the following properties and methods:
+The `ciphers.Cipher` class should have the following properties and methods:
 
 ```java
 public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
@@ -53,7 +53,7 @@ public String decode(String payload) {}
 protected String replaceCharacters(String payload, String source, String target) {
 ```
 
-Every other cipher class extends from `Cipher`. Each extended class (the sub-classes) should
+Every other cipher class extends from `ciphers.Cipher`. Each extended class (the sub-classes) should
 override the `encode` and `decode` methods, but use the inherited
 `replaceCharacters` utility method to perform the character replacement.
 
@@ -66,7 +66,7 @@ Reminder:
   extending from the current class.
 
 Notice that `replaceCharacters` is marked as `protected`. No one outside the
-`Cipher` class should need to call `replaceCharacters` directly.
+`ciphers.Cipher` class should need to call `replaceCharacters` directly.
 Anyone outside the class should instead interact with the cipher class via
 the public `encode` and `decode` methods. The `replaceCharacters` method is not
 marked as `private` because we want to make the method available to the
@@ -84,15 +84,15 @@ parameters to pass to the `replaceCharacters` function.
 
 The cipher classes should have the following signatures for their constructors:
 
-* `public Cipher()`
-* `public ROT13Cipher()`
-* `public CaesarShiftCipher(int shiftAmount)`
-* `public KeywordCipher(String keyword)`
+* `public ciphers.Cipher()`
+* `public ciphers.ROT13Cipher()`
+* `public ciphers.CaesarShiftCipher(int shiftAmount)`
+* `public ciphers.KeywordCipher(String keyword)`
 
-The `Cipher` and the `ROT13Cipher` classes don't have parameters for their
+The `ciphers.Cipher` and the `ciphers.ROT13Cipher` classes don't have parameters for their
 constructors because they're unconfigurable, they always behave the same.
 
-The `CaesarShiftCipher` and `KeywordCipher` accept parameters for their
+The `ciphers.CaesarShiftCipher` and `ciphers.KeywordCipher` accept parameters for their
 constructor because they are configurable. Use the constructor as a place to
 generate the plaintext-to-ciphertext (and vice versa) alphabet mappings and
 store them as private properties of the class.
@@ -130,13 +130,13 @@ Select your operation
 Your choice: 1
 
 Select your cipher
-1: Plain Text Cipher
-2: ROT13 Cipher
-3: Caesar Shift Cipher
-4: Keyword Cipher
+1: Plain Text ciphers.Cipher
+2: ROT13 ciphers.Cipher
+3: Caesar Shift ciphers.Cipher
+4: Keyword ciphers.Cipher
 Your choice: 1
 
-You're encoding with the Plain Text Cipher.
+You're encoding with the Plain Text ciphers.Cipher.
 
  plaintext: hello
 ciphertext: hello
@@ -151,19 +151,19 @@ Select your operation
 Your choice: 2
 
 Select your cipher
-1: Plain Text Cipher
-2: ROT13 Cipher
-3: Caesar Shift Cipher
-4: Keyword Cipher
+1: Plain Text ciphers.Cipher
+2: ROT13 ciphers.Cipher
+3: Caesar Shift ciphers.Cipher
+4: Keyword ciphers.Cipher
 Your choice: 2
 
-You're decoding with the ROT13 Cipher.
+You're decoding with the ROT13 ciphers.Cipher.
 
 ciphertext: trbetr jnfuvatgba
  plaintext: george washington
 ```
 
-Encoding with the Caesar Shift Cipher:
+Encoding with the Caesar Shift ciphers.Cipher:
 
 ```txt
 Select your operation
@@ -172,13 +172,13 @@ Select your operation
 Your choice: 1
 
 Select your cipher
-1: Plain Text Cipher
-2: ROT13 Cipher
-3: Caesar Shift Cipher
-4: Keyword Cipher
+1: Plain Text ciphers.Cipher
+2: ROT13 ciphers.Cipher
+3: Caesar Shift ciphers.Cipher
+4: Keyword ciphers.Cipher
 Your choice: 3
 
-You're encoding with the Caesar Shift Cipher
+You're encoding with the Caesar Shift ciphers.Cipher
 Enter shift amount [0-25]: 1
 abcdefghijklmnopqrstuvwxyz
 bcdefghijklmnopqrstuvwxyza
@@ -187,7 +187,7 @@ bcdefghijklmnopqrstuvwxyza
 ciphertext: efgfoe uif fbtu xbmm pg uif dbtumf
 ```
 
-Encoding with Keyword Cipher with simple keyword:
+Encoding with Keyword ciphers.Cipher with simple keyword:
 
 ```txt
 Select your operation
@@ -196,13 +196,13 @@ Select your operation
 Your choice: 2
 
 Select your cipher
-1: Plain Text Cipher
-2: ROT13 Cipher
-3: Caesar Shift Cipher
-4: Keyword Cipher
+1: Plain Text ciphers.Cipher
+2: ROT13 ciphers.Cipher
+3: Caesar Shift ciphers.Cipher
+4: Keyword ciphers.Cipher
 Your choice: 4
 
-You're encoding with the Keyword Cipher
+You're encoding with the Keyword ciphers.Cipher
 Enter keyword: dog
 
 abcdefghijklmnopqrstuvwxyz
@@ -212,7 +212,7 @@ abcefhijklmnpqrstuvwxyzdog
 ciphertext: zjr'v a irre eribrk?
 ```
 
-Encoding with the Keyword Cipher where keyword includes duplicate letters.
+Encoding with the Keyword ciphers.Cipher where keyword includes duplicate letters.
 Just count any duplicate letters in the keyword as if they only appeared
 once.
 
@@ -223,13 +223,13 @@ Select your operation
 Your choice: 2
 
 Select your cipher
-1: Plain Text Cipher
-2: ROT13 Cipher
-3: Caesar Shift Cipher
-4: Keyword Cipher
+1: Plain Text ciphers.Cipher
+2: ROT13 ciphers.Cipher
+3: Caesar Shift ciphers.Cipher
+4: Keyword ciphers.Cipher
 Your choice: 4
 
-You're encoding with the Keyword Cipher
+You're encoding with the Keyword ciphers.Cipher
 Enter keyword: slamma lamma dingdong
 
 abcdefghijklmnopqrstuvwxyz
